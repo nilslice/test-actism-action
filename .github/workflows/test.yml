@@ -22,6 +22,8 @@ jobs:
       - name: check output
         run: |
           echo '${{steps.actism-image.outputs.output}}' | jq '.value' | base64 -d -i > out.png
+          file out.png
+          stat out.png
       - uses: actions/upload-artifact@v4
         with:
           name: out.png
